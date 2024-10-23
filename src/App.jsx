@@ -1,34 +1,122 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='App'>
+      <div className='App-sidebar'>
+        <div className='Header'>
+          <h3>CloudWatch</h3>
+        </div>
+        <div className='Menu'>
+          <ul>
+            <li className='Menu-item'>
+              <a className='menu-link'>
+                <i className='fas fa-tachometer-alt'></i>
+                <div>🖼️Dashboard</div>
+              </a>
+            </li>
+            <li className='Menu-item'>Search</li>
+            <li className='Menu-item'>About</li>
+          </ul>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='App-page'>
+        <div className='App-row'>
+          <div className='Card'>
+            <h1 className='number'>New York</h1>
+            <h2>New York, USA</h2>
+          </div>
+          <div className='Card'>
+            <h1 className='number'>99%</h1>
+            <h2>Humidity Porcentage</h2>
+          </div>
+          <div className='Card'>
+            <h1 className='number'>☀️</h1>
+            <h2>Forecast</h2>
+          </div>
+        </div>
+        <div className='App-row'>
+          <div className='List'>
+            <div className='filter'>
+              <div className='dateFilter'>
+                <input type="text" placeholder='Enter Date'/>
+              </div>
+              <div className='humidityFilter'>
+                <label htmlFor="">Humidity:</label>
+                <input type="range" name='humidity' min={0.0} max={1.0} step={0.1}/>
+              </div>
+              <button className='btn'>Search</button>
+            </div>
+            <div className='table'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Temperature</th>
+                    <th>Time</th>
+                    <th>Humidity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hello</td>
+                    <td>Hello</td>
+                    <td>Hello</td>
+                    <td>Hello</td>
+                  </tr>
+                  <tr>
+                    <td>Hello</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                    <td>.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
