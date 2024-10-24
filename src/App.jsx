@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const API_KEY = 'dfae101612f14ccaa309142cb4c253fb';
+  const API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // Weatherbit API Key
   const [list, setList] = useState([]);
   const [filterDate, setFilterDate] = useState('');
   const [humidity, setHumidity] = useState(50); // Default humidity value (50%)
