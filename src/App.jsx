@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import WeatherChart from './components/WeatherChart';
 import './App.css';
 
 function App() {
-  const API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // Weatherbit API Key
+  const API_KEY = 'x'; // Weatherbit API Key
   const [list, setList] = useState([]);
   const [filterDate, setFilterDate] = useState('');
   const [humidity, setHumidity] = useState(50); // Default humidity value (50%)
@@ -34,35 +36,12 @@ function App() {
     }
   };
 
+
+
+
   return (
     <div className='App'>
-      <div className='App-sidebar'>
-        <div className='Header'>
-          <h2>CloudWatch</h2>
-        </div>
-        <div className='Menu'>
-          <ul>
-            <li className='Menu-item'>
-              <a className='menu-link'>
-                <i className='fas fa-tachometer-alt'></i>
-                <div>🖼️Dashboard</div>
-              </a>
-            </li>
-            <li className='Menu-item'>
-            <a className='menu-link'>
-                <i className='fas fa-tachometer-alt'></i>
-                <div>🔎Search</div>
-              </a>
-            </li>
-            <li className='Menu-item'>
-            <a className='menu-link'>
-                <i className='fas fa-tachometer-alt'></i>
-                <div>❔About</div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      
       <div className='App-page'>
         <div className='App-row'>
           <div className='Card'>
@@ -133,18 +112,29 @@ function App() {
                         <td>{item.min_temp} °C</td>
                         <td>{item.max_temp} °C</td>
                         <td>{item.rh}%</td>
+                        <td>
+                        <Link to={`/DateDetails/${index}`}>View Details</Link>
+                        </td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="4">No data</td>
+                      <td colSpan="5">No data</td>
                     </tr>
                   )}
                 </tbody>
+               
               </table>
+
             </div>
+
           </div>
         </div>
+        <div className="charts">
+                  <h3>Average Temperature</h3>
+                  {list && <WeatherChart list={list} />}
+              </div>
+
       </div>
     </div>
   );
